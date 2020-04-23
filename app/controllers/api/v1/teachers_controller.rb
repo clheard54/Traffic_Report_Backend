@@ -1,5 +1,6 @@
 class Api::V1::TeachersController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    before_action :authorized, except: :create
+
 
     def profile
       puts TeacherSerializer.new(currentUser)
@@ -21,7 +22,7 @@ class Api::V1::TeachersController < ApplicationController
   private
   
     def user_params
-      params.require(:teacher).permit(:username, :password, :name, :admin=true)
+      params.require(:teacher).permit(:username, :password, :name, :admin)
     end
 
 end

@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::API
-    before_action :authorized
 
     def encode_token(user)
         # pass in user as payload
-        JWT.encode( {user_id: user.id}, 'crimson-amber-kelly', 'HS256')
+        JWT.encode( {user_id: user.id, username: user.username, admin: user.admin}, 'crimson-amber-kelly', 'HS256')
     end
 
     def decoded_token
@@ -26,8 +25,16 @@ class ApplicationController < ActionController::API
         decoded_token.first['user_id']
     end
 
+    def user_admin
+        decoded_token.first['admin']
+    end
+
     def current_user
-        @user ||= User.find_by(id: user_id)
+        if user_admin
+            @user ||= Teacher.find_by(id: user_id)
+        else
+            @user ||= Student.find_by(id: user_id)
+        end
     end
 
     def logged_in?

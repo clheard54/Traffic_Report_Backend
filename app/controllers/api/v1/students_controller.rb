@@ -1,5 +1,10 @@
 class Api::V1::StudentsController < ApplicationController
-    skip_before_action :authorized, only: [:create]
+    before_action :authorized, except: :create
+
+    def index
+        @students = Student.all
+        render json: @students
+    end
 
     def profile
         puts StudentSerializer.new(currentUser)
@@ -21,7 +26,7 @@ class Api::V1::StudentsController < ApplicationController
   private
     
     def user_params
-        params.require(:student).permit(:username, :password, :name)
+        params.require(:student).permit(:username, :password, :name, :admin)
     end
 
 end

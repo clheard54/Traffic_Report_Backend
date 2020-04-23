@@ -22,9 +22,9 @@ class Api::V1::AuthController < ApplicationController
     end
 
     def show
-        @user = Teacher.find_by(id: user_id) ||= Student.find_by(id: user_id)
+        @user = current_user
         if logged_in?
-            render json: {id: @user.id, username: @user.username}
+            render json: {id: @user.id, username: @user.username, @user.admin}
         else
             render json: { error: 'No user could be found'}, status: 401
         end
@@ -32,6 +32,6 @@ class Api::V1::AuthController < ApplicationController
 
   private
     def user_login_params
-        params.require(:auth).permit(:username, :password, :admin)
+        params.require(:user).permit(:name, :username, :password, :admin)
     end
 end
