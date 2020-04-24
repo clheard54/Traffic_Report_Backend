@@ -11,6 +11,7 @@ class Api::V1::TeachersController < ApplicationController
       @user = Teacher.new(user_params)
       if @user.valid?
           #use encode_token method to do JWT.encode (AppController)
+          @user.admin = true
           @user.save
           @token = encode_token(@user)
           render json: { user: TeacherSerializer.new(@user), jwt: @token }

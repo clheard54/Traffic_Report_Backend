@@ -5,6 +5,7 @@ class CreateStudents < ActiveRecord::Migration[6.0]
       t.integer :grade
       t.string :username
       t.string :password_digest
+      t.boolean :admin, :default => false
       
       t.timestamps
     end

@@ -14,7 +14,7 @@ class Api::V1::StudentsController < ApplicationController
     def create
         @user = Student.new(user_params)
         if @user.valid?
-            #use encode_token method to do JWT.encode (AppController)
+            @user.admin = false
             @user.save
             @token = encode_token(@user)
             render json: { user: StudentSerializer.new(@user), jwt: @token }
