@@ -3,8 +3,12 @@ class Api::V1::TeachersController < ApplicationController
 
 
     def profile
-      puts TeacherSerializer.new(currentUser)
-      render json: {user: TeacherSerializer.new(currentUser)}
+      if user_admin
+        puts TeacherSerializer.new(currentUser)
+        render json: {user: TeacherSerializer.new(currentUser)}
+      else
+        render json: {user: StudentSerializer.new(currentUser)}
+      end
     end
   
     def create
