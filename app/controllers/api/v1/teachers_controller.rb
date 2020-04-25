@@ -3,13 +3,10 @@ class Api::V1::TeachersController < ApplicationController
 
 
     def profile
-      if user_admin
         puts TeacherSerializer.new(currentUser)
         render json: {user: TeacherSerializer.new(currentUser)}
-      else
-        render json: {user: StudentSerializer.new(currentUser)}
-      end
     end
+
   
     def create
       @user = Teacher.new(user_params)
@@ -23,6 +20,7 @@ class Api::V1::TeachersController < ApplicationController
           render json: { error: 'Failed to create new user account' }, status: :not_acceptable
       end
     end
+    
   
   private
   

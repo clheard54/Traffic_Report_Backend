@@ -6,7 +6,7 @@ class Teacher < ApplicationRecord
     has_many :courses
     # has_many :courses_students, through: :courses
     # has_many :students, through: courses_students
-    # accepts_nested_attributes_for :courses
+    accepts_nested_attributes_for :courses
     # accepts_nested_attributes_for :courses_students
     # accepts_nested_attributes_for :students
     

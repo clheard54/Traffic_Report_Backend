@@ -28,7 +28,7 @@ class Api::V1::AssignmentsController < ApplicationController
             render json: {message: "Assignment successfully deleted"}
         else 
             render json: {message: 'Could not delete assigment'}, status: :not_acceptable
-        end.
+        end
     end
 
   private
