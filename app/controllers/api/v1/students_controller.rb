@@ -1,5 +1,5 @@
 class Api::V1::StudentsController < ApplicationController
-    before_action :authorized, except: :create
+    before_action :authorized, except: [:create, :index]
 
     def index
         @students = Student.all
@@ -7,8 +7,8 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     def profile
-        puts StudentSerializer.new(currentUser)
-        render json: {user: StudentSerializer.new(currentUser)}
+        puts StudentSerializer.new(current_user)
+        render json: {user: StudentSerializer.new(current_user)}
     end
     
     def create

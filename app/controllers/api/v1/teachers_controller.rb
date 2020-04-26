@@ -1,10 +1,10 @@
 class Api::V1::TeachersController < ApplicationController
-    before_action :authorized, except: :create
+    before_action :authorized, except: [:create, :profile]
 
 
     def profile
-        puts TeacherSerializer.new(currentUser)
-        render json: {user: TeacherSerializer.new(currentUser)}
+        puts TeacherSerializer.new(current_user)
+        render json: {user: TeacherSerializer.new(current_user)}
     end
 
   

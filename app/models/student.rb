@@ -7,5 +7,6 @@ class Student < ApplicationRecord
   has_many :courses, through: :courses_students
   has_many :responses, through: :courses_students
   has_many :questions, through: :courses_students
+  accepts_nested_attributes_for :courses
   accepts_nested_attributes_for :responses
 end
