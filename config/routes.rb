@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       resources :courses
       resources :assignments
       resources :questions
+      resources :responses
+      resources :courses_students
       post '/login', to: 'auth#create'
       get '/current_user', to: 'auth#show'
       get '/profile', to: 'students#profile'

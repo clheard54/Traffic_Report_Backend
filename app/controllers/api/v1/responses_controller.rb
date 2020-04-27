@@ -1,5 +1,5 @@
 class Api::V1::ResponsesController < ApplicationController
-    before_action :authorized
+    # before_action :authorized
 
     def index
         @responses = Response.all
@@ -8,6 +8,7 @@ class Api::V1::ResponsesController < ApplicationController
 
     def create
         @response = Response.new(response_params)
+        @response.day = DateTime.now.to_s.slice(5, 5).sub!('-', '.').to_f
         if @response.valid?
             @response.save
             render json: { response: ResponseSerializer.new(@response)}
@@ -25,6 +26,6 @@ class Api::V1::ResponsesController < ApplicationController
   private
 
     def response_params
-        params.require(:response).permit(:datatype, :answer, :day, :courses_student_id)
+        params.require(:response).permit(:datatype, :answer, :day, :courses_student_id, :created_at)
     end
 end
