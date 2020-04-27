@@ -6,12 +6,15 @@ class Api::V1::ResponsesController < ApplicationController
         render json: @responses
     end
 
+
     def create
-        @response = Response.new(response_params)
-        @response.day = DateTime.now.to_s.slice(5, 5).sub!('-', '.').to_f
+        newDay = DateTime.now.to_s.slice(5, 5).sub!('-', '.').to_f
+        full_params = {"answer"=>response_params[:answer], "datatype"=>response_params[:datatype], "day"=>newDay, "courses_student_id"=>response_params[:courses_student_id]}
+        @response = Response.new(full_params)
+        @response
         if @response.valid?
             @response.save
-            render json: { response: ResponseSerializer.new(@response)}
+            render json: @response
         else
             render json: { error: 'Failed to submit response' }, status: :not_acceptable
         end
