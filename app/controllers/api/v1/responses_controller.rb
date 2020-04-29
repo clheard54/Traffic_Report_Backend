@@ -8,8 +8,9 @@ class Api::V1::ResponsesController < ApplicationController
 
 
     def create
-        newDay = DateTime.now.to_s.slice(5, 5).sub!('-', '.').to_f
-        full_params = {"answer"=>response_params[:answer], "datatype"=>response_params[:datatype], "day"=>newDay, "courses_student_id"=>response_params[:courses_student_id]}
+        x = DateTime.now
+        newDay = x.strftime("%m%d.%H%M")
+        full_params = {"answer"=>response_params[:answer], "datatype"=>response_params[:datatype], "day"=>newDay, "courses_student_id"=>response_params[:courses_student_id], "course_id"=>response_params[:course_id], "student_id"=>response_params[:student_id]}
         @response = Response.new(full_params)
         @response
         if @response.valid?
@@ -29,6 +30,6 @@ class Api::V1::ResponsesController < ApplicationController
   private
 
     def response_params
-        params.require(:response).permit(:datatype, :answer, :day, :courses_student_id, :created_at)
+        params.require(:response).permit(:datatype, :answer, :day, :courses_student_id, :student_id, :course_id, :created_at)
     end
 end
