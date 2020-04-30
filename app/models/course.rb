@@ -7,4 +7,6 @@ class Course < ApplicationRecord
     has_many :assignments
     accepts_nested_attributes_for :students
     accepts_nested_attributes_for :responses
+    accepts_nested_attributes_for :assignments
+    accepts_nested_attributes_for :questions
 end

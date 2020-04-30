@@ -15,6 +15,9 @@ Student.create(name: 'Jack', grade: 10, username: "jack", password: "123")
 Student.create(name: 'Clark', grade: 10, username: "clark", password: "123")
 Student.create(name: 'Ethan', grade: 10, username: "ejh", password: "deng")
 
+Assignment.create(details: "pp 43-45: #1,2, 5-10", course_id:1)
+Assignment.create(details: "Read pp 122-139", course_id: 2)
+Assignment.create(details: "Section 4.1 #2, 4, 7-19odd, 23", course_id: 1)
 
 Teacher.create(name: "Britney", username: "BritV", password: "123")
 Teacher.create(name: "Clarion", username: "clh", password: "asdf")
