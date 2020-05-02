@@ -8,8 +8,8 @@ class Api::V1::ResponsesController < ApplicationController
 
 
     def create
-        x = DateTime.now
-        newDay = x.strftime("%m%d.%H%M")
+        x = Time.now
+        newDay = x.to_f*1000
         full_params = {"answer"=>response_params[:answer], "datatype"=>response_params[:datatype], "day"=>newDay, "courses_student_id"=>response_params[:courses_student_id], "course_id"=>response_params[:course_id], "student_id"=>response_params[:student_id]}
         @response = Response.new(full_params)
         @response
