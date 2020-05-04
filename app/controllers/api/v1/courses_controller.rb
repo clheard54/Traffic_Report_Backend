@@ -1,5 +1,5 @@
 class Api::V1::CoursesController < ApplicationController
-    before_action :authorized, except: [:index, :show]
+    before_action :authorized, except: [:show, :index]
 
     def index
         @courses = Course.all

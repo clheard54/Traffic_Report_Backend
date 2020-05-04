@@ -2,12 +2,12 @@ class ApplicationController < ActionController::API
 
     def encode_token(user)
         # pass in user as payload
-        JWT.encode( {user_id: user.id, username: user.username, admin: user.admin}, 'crimson-amber-kelly', 'HS256')
+        JWT.encode( {user_id: user.id, username: user.username, admin: user.admin}, Rails.application.credentials.dig(:token_key), 'HS256')
     end
 
     def decoded_token
         begin
-            JWT.decode(token, 'crimson-amber-kelly', true, algorithm: 'HS256')
+            JWT.decode(token, Rails.application.credentials.dig(:token_key), true, algorithm: 'HS256')
         rescue JWT::DecodeError
             [{error: "Invalid Token"}]
         end

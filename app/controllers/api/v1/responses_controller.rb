@@ -1,5 +1,5 @@
 class Api::V1::ResponsesController < ApplicationController
-    # before_action :authorized
+    before_action :authorized
 
     def index
         @responses = Response.all

@@ -1,5 +1,5 @@
 class Api::V1::TeachersController < ApplicationController
-    before_action :authorized, except: [:create, :profile]
+    before_action :authorized, except: [:create]
 
 
     def profile
