@@ -10,7 +10,7 @@ class Api::V1::ResponsesController < ApplicationController
     def create
         x = Time.now
         newDay = x.to_f*1000
-        full_params = {"answer"=>response_params[:answer], "datatype"=>response_params[:datatype], "day"=>newDay, "courses_student_id"=>response_params[:courses_student_id], "course_id"=>response_params[:course_id], "student_id"=>response_params[:student_id]}
+        full_params = {"answer"=>response_params[:answer], "datatype"=>response_params[:datatype], "day"=>newDay, "feedback"=>response_params[:feedback], "courses_student_id"=>response_params[:courses_student_id], "course_id"=>response_params[:course_id], "student_id"=>response_params[:student_id]}
         @response = Response.new(full_params)
         @response
         if @response.valid?
@@ -30,6 +30,6 @@ class Api::V1::ResponsesController < ApplicationController
   private
 
     def response_params
-        params.require(:response).permit(:datatype, :answer, :day, :courses_student_id, :student_id, :course_id, :created_at)
+        params.require(:response).permit(:datatype, :answer, :day, :feedback, :courses_student_id, :student_id, :course_id, :created_at)
     end
 end
