@@ -7,7 +7,6 @@ class Api::V1::CpqsController < ApplicationController
     end
 
     def create
-        byebug
         @cpq = Cpq.create(cpq_params)
         if @cpq.valid?
             render json: @cpq
@@ -28,6 +27,6 @@ class Api::V1::CpqsController < ApplicationController
 
     private
     def cpq_params
-        params.require(:cpq).permit(:question, :course_id, :cpq)
+        params.require(:cpq).permit(:question, :day, :course_id, :cpq)
     end
 end
