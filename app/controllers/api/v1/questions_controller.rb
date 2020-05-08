@@ -28,12 +28,12 @@ class Api::V1::QuestionsController < ApplicationController
             render json: {message: "Question successfully deleted"}
         else 
             render json: {message: 'Could not delete question'}, status: :not_acceptable
-        end.
+        end
     end
 
   private
 
     def question_params
-        params.require(:question).permit(:id, :text, :courses_student)
+        params.require(:question).permit(:id, :text, :course_id)
     end
 end
