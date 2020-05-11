@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::BASE
 
     def encode_token(user)
         # pass in user as payload
