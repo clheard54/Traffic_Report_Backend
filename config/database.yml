@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: traffic_teacher_backend_production
-  username: traffic_teacher_backend
-  password: <%= ENV['TRAFFIC_TEACHER_BACKEND_DATABASE_PASSWORD'] %>
+  
