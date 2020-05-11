@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       get '/profile', to: 'students#profile'
       post '/admin_signup', to: 'teachers#create'
       post '/student_signup', to: 'students#create'
+      get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+        !request.xhr? && request.format.html?
+      end
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
