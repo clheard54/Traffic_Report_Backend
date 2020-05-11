@@ -70,13 +70,13 @@ test:
 #
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
-
+#
   DATABASE_URL = "postgres://haokitvzmlltun:f11220922473c1779f3f6680f8d92a4dd6802f3d912e5b81f9f87ba8709a92d7@ec2-50-17-90-177.compute-1.amazonaws.com:5432/d74f7u2vbk9qk8"
 #
 # You can use this database configuration with:
 #
   production:
-    url: <%= ENV['postgres://haokitvzmlltun:f11220922473c1779f3f6680f8d92a4dd6802f3d912e5b81f9f87ba8709a92d7@ec2-50-17-90-177.compute-1.amazonaws.com:5432/d74f7u2vbk9qk8'] %>
+    url: <%= ENV["postgres://haokitvzmlltun:f11220922473c1779f3f6680f8d92a4dd6802f3d912e5b81f9f87ba8709a92d7@ec2-50-17-90-177.compute-1.amazonaws.com:5432/d74f7u2vbk9qk8"] %>
 #
 production:
   <<: *default
