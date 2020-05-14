@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Student.delete_all
+Teacher.delete_all
+Course.delete_all
+Assignment.delete_all
+CoursesStudent.delete_all
 
 Student.create(name: 'SusieQ', grade: 10, username: "susieQ", password: "1234")
 Student.create(name: 'Emma', grade: 10, username: "ejg", password: "arch")
@@ -49,12 +54,12 @@ CoursesStudent.create(student_id: 3, course_id: 1)
 CoursesStudent.create(student_id: 3, course_id: 6)
 CoursesStudent.create(student_id: 3, course_id: 8)
 CoursesStudent.create(student_id: 3, course_id: 9)
-CoursesStudent.create(student_id: 3, course_id: 10)
+CoursesStudent.create(student_id: 3, course_id: 3)
 CoursesStudent.create(student_id: 4, course_id: 2)
 CoursesStudent.create(student_id: 4, course_id: 6)
 CoursesStudent.create(student_id: 4, course_id: 7)
 CoursesStudent.create(student_id: 4, course_id: 8)
-CoursesStudent.create(student_id: 4, course_id: 9)
+CoursesStudent.create(student_id: 4, course_id: 5)
 CoursesStudent.create(student_id: 5, course_id: 3)
 CoursesStudent.create(student_id: 5, course_id: 4)
 CoursesStudent.create(student_id: 5, course_id: 5)
@@ -68,13 +73,14 @@ CoursesStudent.create(student_id: 6, course_id: 6)
 CoursesStudent.create(student_id: 7, course_id: 1)
 CoursesStudent.create(student_id: 7, course_id: 4)
 CoursesStudent.create(student_id: 7, course_id: 7)
-CoursesStudent.create(student_id: 7, course_id: 9)
-CoursesStudent.create(student_id: 7, course_id: 10)
+CoursesStudent.create(student_id: 7, course_id: 3)
+CoursesStudent.create(student_id: 7, course_id: 5)
 CoursesStudent.create(student_id: 8, course_id: 2)
 CoursesStudent.create(student_id: 8, course_id: 5)
 CoursesStudent.create(student_id: 8, course_id: 7)
 CoursesStudent.create(student_id: 8, course_id: 8)
-
+CoursesStudent.create(student_id: 8, course_id: 1)
+CoursesStudent.create(student_id: 8, course_id: 3)
 
 Response.create(answer: 'yellow', datatype:'light', day: "1587844293032", courses_student_id: 1, course_id: 1, student_id: 1)
 Response.create(answer: 'green', datatype:'light', day: "1587858791941", courses_student_id: 1, course_id: 1, student_id: 1)
@@ -178,4 +184,162 @@ Response.create(answer: 'green', datatype:'light', day: "1588903591941", courses
 Response.create(answer: 'green', datatype:'light', day: "1588416392941", courses_student_id: 22, course_id: 5, student_id: 5)
 Response.create(answer: 'green', datatype:'light', day: "1588322091941", courses_student_id: 22, course_id: 5, student_id: 5)
 
+colors = ['red', 'yellow', 'green']
+
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 1, course_id: 1, student_id: 1)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 2, course_id: 3, student_id: 1)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 3, course_id: 5, student_id: 1)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 4, course_id: 8, student_id: 1)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 5, course_id: 2, student_id: 2)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 6, course_id: 3, student_id: 2)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 7, course_id: 4, student_id: 2)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 8, course_id: 5, student_id: 2)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 9, course_id: 8, student_id: 2)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 10, course_id: 1, student_id: 3)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 11, course_id: 6, student_id: 3)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 12, course_id: 8, student_id: 3)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 13, course_id: 9, student_id: 3)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 14, course_id: 3, student_id: 3)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 15, course_id: 2, student_id: 4)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 16, course_id: 6, student_id: 4)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 17, course_id: 7, student_id: 4)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 18, course_id: 8, student_id: 4)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 19, course_id: 5, student_id: 4)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 20, course_id: 3, student_id: 5)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 21, course_id: 4, student_id: 5)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 22, course_id: 5, student_id: 5)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 24, course_id: 7, student_id: 5)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 25, course_id: 2, student_id: 6)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 26, course_id: 3, student_id: 6)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 27, course_id: 4, student_id: 6)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 28, course_id: 5, student_id: 6)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 29, course_id: 6, student_id: 6)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 30, course_id: 1, student_id: 7)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 31, course_id: 4, student_id: 7)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 32, course_id: 7, student_id: 7)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 33, course_id: 3, student_id: 7)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 34, course_id: 5, student_id: 7)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 35, course_id: 2, student_id: 8)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 36, course_id: 5, student_id: 8)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 37, course_id: 7, student_id: 8)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 38, course_id: 8, student_id: 8)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 39, course_id: 1, student_id: 8)
+end
+
+10.times do
+    Response.create(answer: colors.sample, datatype:'light', day: rand(1588322091941..1589470454567).to_s, courses_student_id: 40, course_id: 3, student_id: 8)
+end
 
