@@ -1,5 +1,5 @@
 class Api::V1::ResponsesController < ApplicationController
-    before_action :authorized except: :index
+    before_action :authorized, except: :index
 
     def index
         @responses = Response.all
